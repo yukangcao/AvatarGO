@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="A versatile pipeline for generating and editing 3D head avatars with textual prompts.">
+  <meta name="keywords" content="3D generative model, head avatar, diffusion models, neural rendering">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AvatarGO</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/result.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">AvatarGO: Zero-shot 4D Human-Object Interaction Generation and Animation</h1>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+              <a href="https://yukangcao.github.io/">Yukang Cao</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=lSDISOcAAAAJ&hl=zh-CN">Liang Pan</a><sup>2†</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.kaihan.org/">Kai Han</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://i.cs.hku.hk/~kykwong/">Kwan-Yee K. Wong</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>1†</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="footnote"><sup>†</sup>Corresponding authors</span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <p>
+            <span class="author-block"><sup>1</sup>Nanyang Technological University <sup>2</sup>Shanghai AI Laboratory</span>  <sup>3</sup>The University of Hong Kong</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            Preprint 2024
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/yukangcao/AvatarGO"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="my-hr">
+  <hr>
+</div>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advancements in diffusion models have led to significant improvements in the generation and animation of 4D full-body human-object interactions (HOI). Nevertheless, existing methods primarily focus on SMPL-based motion generation, which is limited by the scarcity of realistic large-scale interaction data. This constraint affects their ability to create everyday HOI scenes. This paper addresses this challenge using a zero-shot approach with a pre-trained diffusion model.Despite this potential, achieving our goals is difficult due to the diffusion model's lack of understanding of "where" and "how" objects interact with the human body. To tackle these issues, we introduce <strong>AvatarGO</strong>, a novel framework designed to generate animatable 4D HOI scenes directly from textual inputs. Specifically, <strong>1)</strong> for the "where" challenge, we propose <strong>LLM-guided contact retargeting</strong>, which employs Lang-SAM to identify the contact body part from text prompts, ensuring precise representation of human-object spatial relations. <strong>2)</strong> For the "how" challenge, we introduce <strong>correspondence-aware motion optimization</strong> that constructs motion fields for both human and object models using the linear blend skinning function from SMPL-X. Our framework not only generates coherent compositional motions, but also exhibits greater robustness in handling penetration issues. Extensive experiments with existing methods validate AvatarGO's superior generation and animation capabilities on a variety of human-object pairs and diverse poses. As the first attempt to synthesize 4D avatars with object interactions, we hope AvatarGO could open new doors for human-centric 4D content creation. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <hr>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">3D static human-object composition</h2>
+        <div class="content has-text-justified">
+          <p>
+          AvatarGO effectively produces diverse human-object compositions with correct spatial correlations and contact areas.
+          </p>
+        </div>
+        <table>
+          <tr>
+            <td><img src="./static/gif/Torch/kratos_Torch_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/Torch/Wonder-woman_Torch_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/Torch/Goku_Torch_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/Torch/Yao-Ming_Torch_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+          </tr>
+          <tr>
+            <td>Kratos in God of War holding a Torch in his hand</td>
+            <td>Wonder Woman holding a Torch in her hand</td>
+            <td>Goku in Dragon Ball Series holding a Torch in his hand</td>
+            <td>Yao Ming holding a Torch in his hand</td>
+          </tr>
+
+          <tr>
+            <td><img src="./static/gif/axe/groot_thor-axe_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/axe/woman-ski_thor-axe2_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/axe/Iron-Man_thor-axe_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/axe/Steven-Paul_jobs_thor-axe2_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+          </tr>
+          <tr>
+              <td>I am Groot holding an axe of Thor in his hand</td>
+              <td>Woman in ski clothes holding an axe of Thor in her hand</td>
+              <td>Iron Man holding an axe of Thor in his hand</td>
+              <td>Steven Paul Jobs holding an axe of Thor in his hand</td>
+          </tr>
+          
+          <tr>
+            <td><img src="./static/gif/microphone/Iron-Man_microphone_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/microphone/Joker_microphone_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/spiderman_flute_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/microphone/Naruto_microphone_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+          </tr>
+          <tr>
+              <td>Iron Man holding a microphone in his hand</td>
+              <td>Joker holding a microphone in his hand</td>
+              <td>Spiderman holding a flute in her hand</td>
+              <td>Naruto in Naruto Series holding a microphone in her hand</td>
+          </tr>
+
+          <tr>
+            <td><img src="./static/gif/ak47/Captain-America_ak47_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/ak47/Naruto_ak47_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/dumbbel/bodybuilder-dumbbel_combine2.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+            <td><img src="./static/gif/hulk-golden_cudgel_combine.gif" style="width: 250px; max-width: 1300px; height: auto;"></td>
+          </tr>
+          
+          <tr>
+              <td>Captain America holding an AK-47 in his hand</td>
+              <td>Naruto in Naruto Series holding an AK-47 in his hand</td>
+              <td>Bodybuilder holding a dumbbel in his hand</td>
+              <td>Hulk holding a golden cudgel in his hand</td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">4D avatar generation with object interactions</h2>
+        <div class="content has-text-justified">
+          <p>
+          After 3D compositional generation, AvatarGO can achieve joint animation of humans and objects while avoiding penetration issues.
+          </p>
+        </div>
+        
+        <table>
+          <tr>
+            <td><img src="./animation/dumbbel/bodybuilder-dumbbel.gif"></td>
+            <td><img src="./animation/dumbbel/Wonder_woman-dumbbel.gif"></td>
+            <td><img src="./animation/phone/Bruce_Lee-phone.gif"></td>
+            <td><img src="./animation/phone/Steven_Paul_Jobs-phone.gif"></td>
+          </tr>
+          
+          <tr>
+            <td>Bodybuilder holding a dumbbel in his hand</td>
+            <td>Wonder Woman holding a dumbbel in her hand</td>
+            <td>Bruce Lee holding an iPhone in his hand</td>
+            <td>Steven Paul Jobs holding an iPhone in his hand</td>
+          </tr>
+
+          <tr>
+            <td><img src="./animation/box/Einstein_box_walk.gif"></td>
+            <td><img src="./animation/box/Einstein_box_run.gif"></td>
+            <td><img src="./animation/Groot-ak47.gif"></td>
+            <td><img src="./animation/Captain_America-ak47.gif"></td>
+          </tr>
+          <tr>
+              <td>Albert Einstein holding a box in his hand</td>
+              <td>Albert Einstein holding a box in his hand</td>
+              <td>I am Groot holding an AK-47 in his hand</td>
+              <td>Captain America holding a AK-47 in his hand</td>
+          </tr>
+          
+          <tr>
+              <td><img src="./animation/Woman_ski-axe.gif"></td>
+              <td><img src="./animation/Torch/Kratos-Torch.gif"></td>
+            <td><img src="./animation/hulk-golden_cudgel.gif"></td>
+            <td><img src="./animation/IronMan-axe_thor.gif"></td>
+          </tr>
+          <tr>
+              <td>Wonder Woman holding an axe of Thor in his hand</td>
+              <td>Joker holding a Torch in his hand</td>
+              <td>Hulk holding a golden cudgel in his hand</td>
+              <td>Iron Man holding an axe of Thor in his hand</td>
+          </tr>
+
+          <tr>
+            <td><img src="./animation/Torch/Goku-Torch.gif"></td>
+            <td><img src="./animation/naruto-football.gif"></td>
+            <td><img src="./animation/spiderman-ak47.gif"></td>
+            <td><img src="./animation/IronMan-axe.gif"></td>
+          </tr>
+          
+          <tr>
+              <td>Goku in Dragon Ball Series holding a Torch in his hand</td>
+              <td>Naruto in Naruto Series stepping on a football under his foot</td>
+              <td>Spiderman holding a dumbbel in his hand</td>
+              <td>Iron Man holding an axe in his hand</td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">Qualitative Comparisons</h2>
+    <div class="slideshow-container" style="display: flex; justify-content: center; align-items: center; position: relative;">
+        <div style="position: relative;">
+      <video class="slide" controls autoplay loop muted style="width: 100%; max-width: 1300px; height: auto;">
+        <source src="./comparison/dynamic1.mp4" type="video/mp4">
+      </video>
+      <video class="slide" controls autoplay loop muted style="width: 100%; max-width: 1300px; height: auto;">
+        <source src="./comparison/dynamic2.mp4" type="video/mp4">
+      </video>
+      <video class="slide" controls autoplay loop muted style="width: 100%; max-width: 1300px; height: auto;">
+        <source src="./comparison/dynamic3.mp4" type="video/mp4">
+      </video>
+      <video class="slide" controls autoplay loop muted style="width: 100%; max-width: 1300px; height: auto;">
+        <source src="./comparison/dynamic4.mp4" type="video/mp4">
+      </video>
+      <video class="slide" controls autoplay loop muted style="width: 100%; max-width: 1300px; height: auto;">
+        <source src="./comparison/dynamic6.mp4" type="video/mp4">
+      </video>
+
+
+      <div class="navigation-dots" style="margin-top: 10px; display: flex; justify-content: center; position: relative; z-index: 20;">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+      <button class="button prev" 
+            onclick="changeSlide(-1)" 
+            style="margin-left: -10px;z-index: 10; position: absolute; left: 10px; top: 50%; transform: translateY(-50%);"> 
+        &#10094;
+      </button>
+      <button class="button next" 
+            onclick="changeSlide(1)" 
+            style="margin-right: -10px;z-index: 10; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"> 
+        &#10095;
+      </button>
+  </div>
+
+
+</div>
+</div>
+</div>
+
+<script>
+let currentSlideIndex = 0;
+
+function changeSlide(step) {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    slides[currentSlideIndex].style.display = 'none'; // Hide current slide
+    dots[currentSlideIndex].classList.remove('active'); // Remove active class from current dot
+
+    currentSlideIndex = (currentSlideIndex + step + slides.length) % slides.length;
+
+    slides[currentSlideIndex].style.display = 'block'; // Show new slide
+    dots[currentSlideIndex].classList.add('active'); // Add active class to new dot
+}
+
+// Initial setup to hide all slides except the first one
+document.querySelectorAll('.slide').forEach((slide, index) => {
+    slide.style.display = (index === 0) ? 'block' : 'none'; // Show the first slide and hide others
+});
+
+// Automatically change slides every 10 seconds
+setInterval(() => {
+    changeSlide(1);
+}, 10000); // Change slide every 10 seconds
+
+// Update display initially
+document.querySelectorAll('.dot')[currentSlideIndex].classList.add('active'); // Set first dot active
+</script>
+    <!-- <hr> -->
+    <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Method</h2>
+            <div class="content has-text-justified">
+              <p>
+
+              </p>
+            </div>
+            <img src="./static/AvatarGO-pipeline.png" witdh="1000">
+              <p>
+              AvatarGO takes the text prompts as input to generate 4D avatars with object interactions. At the core of our network are: 1) Text-driven 3D human and object composition that employs large language models to retarget the contact areas from texts and spatial-aware SDS to composite the 3D models. 2) Correspondence-aware motion optimization which jointly optimizes the animation for humans and objects. It effectively maintains the spatial correspondence during animation, addressing the penetration issues.
+              </p>
+          </div>
+        </div>
+
+      </div>
+
+</section>  
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+        @inproceedings{,
+        }
+    </code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is constructed using the source code provided by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, and we are grateful for the template they provided.
+            Allow us to express our appreciation for their contribution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
