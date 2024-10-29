@@ -9,7 +9,7 @@
 <a href="https://liuziwei7.github.io/">Ziwei Liu</a><sup>†</sup>
 
 
-[![Paper](http://img.shields.io/badge/Paper-arxiv.svg)]()
+[![Paper](http://img.shields.io/badge/Paper-arxiv.2410.07164-B31B1B.svg)](https://arxiv.org/abs/2410.07164)
 <a href="https://yukangcao.github.io/AvatarGO/"><img alt="page" src="https://img.shields.io/badge/Webpage-0054a6?logo=Google%20chrome&logoColor=white"></a>
 
 <img src="./docs/static/avatargo-demo-1.gif">
@@ -30,6 +30,10 @@ We are working on releasing the code... 🏗️ 🚧 🔨 Please stay tuned!
 ## Misc.
 If you want to cite our work, please use the following bib entry:
 ```
-@article{
+@article{cao2024avatargo,
+  title={AvatarGO: Zero-shot 4D Human-Object Interaction Generation and Animation},
+  author={Cao, Yukang and Pan, Liang and Han, Kai and Wong, Kwan-Yee K and Liu, Ziwei},
+  journal={arXiv preprint arXiv:2410.07164},
+  year={2024}
 }
 ```
