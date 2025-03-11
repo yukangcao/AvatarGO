@@ -1,0 +1,7 @@
+# ninja log v5
+26	38177	1722911234135361178	/mnt/sfs-common/ykcao/avatargo/stage2/gaussiansplatting/submodules/simple-knn/build/temp.linux-x86_64-cpython-311/simple_knn.o	f44c745d70155f78
+24	56135	1722911252085286438	/mnt/sfs-common/ykcao/avatargo/stage2/gaussiansplatting/submodules/simple-knn/build/temp.linux-x86_64-cpython-311/ext.o	91f4c5817d50806c
+26	107291	1722911303254154470	/mnt/sfs-common/ykcao/avatargo/stage2/gaussiansplatting/submodules/simple-knn/build/temp.linux-x86_64-cpython-311/spatial.o	43b348e15c314ddb
+44	30171	1741624319777958208	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/simple-knn/build/temp.linux-x86_64-cpython-311/simple_knn.o	e923e03e2354a826
+44	55563	1741624345173615892	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/simple-knn/build/temp.linux-x86_64-cpython-311/ext.o	45c1e6e252bbea09
+45	114035	1741624403636044589	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/simple-knn/build/temp.linux-x86_64-cpython-311/spatial.o	bbfff8ef760a5931

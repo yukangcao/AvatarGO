@@ -1,0 +1,19 @@
+# ninja log v5
+17	21262	1722927504413691163	/mnt/sfs-common/ykcao/avatargo/stage2/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/forward.o	83d2bcb3d7a9be46
+13	21484	1722927504637017951	/mnt/sfs-common/ykcao/avatargo/stage2/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/apply_weights.o	60f1c99c6e86c3b0
+14	22050	1722927505203561504	/mnt/sfs-common/ykcao/avatargo/stage2/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/backward.o	75394354f776fa2f
+17	40265	1722927523411783408	/mnt/sfs-common/ykcao/avatargo/stage2/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/rasterizer_impl.o	3ee0833e4d56be42
+19	68497	1722927551629559382	/mnt/sfs-common/ykcao/avatargo/stage2/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/ext.o	708c56374da4c1f3
+23	120475	1722927603618317018	/mnt/sfs-common/ykcao/avatargo/stage2/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/rasterize_points.o	e9686ab3be9b6844
+81	10634	1741596962965172313	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/forward.o	28cc581af2d5fdca
+80	11153	1741596963484830068	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/apply_weights.o	2d17aef59c805e36
+80	11193	1741596963523379634	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/backward.o	1da069b912fb6e62
+10637	31402	1741596983726380822	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/rasterizer_impl.o	d433fccfc86591cb
+11153	59566	1741597011881971867	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/ext.o	e7d7275f5833fb8c
+11193	109412	1741597061724506238	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/rasterize_points.o	ed157eb69964dcee
+3330	14162	1741632933301429845	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/forward.o	33996d9c7e30c268
+3330	14333	1741632933475113734	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/apply_weights.o	de3c08978fbbabdb
+3330	14566	1741632933706870341	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/backward.o	3c8b6ff0cf9f1e04
+14168	34421	1741632953552033434	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/cuda_rasterizer/rasterizer_impl.o	7f7b9a60e66a43cb
+14333	63875	1741632983002584796	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/ext.o	21ed032fbbadfdcb
+14566	116058	1741633035173822984	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/diff-gaussian-rasterization/build/temp.linux-x86_64-cpython-39/rasterize_points.o	42ac0b05ec808d8

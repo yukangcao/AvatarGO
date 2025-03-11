@@ -1,0 +1,4 @@
+# ninja log v5
+7	18670	1741592437373779706	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/simple-knn/build/temp.linux-x86_64-cpython-38/simple_knn.o	d13c2232e543cabb
+7	63875	1741592482551931125	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/simple-knn/build/temp.linux-x86_64-cpython-38/ext.o	7ed953776c1e42f4
+8	106102	1741592524791076198	/mnt/sfs-common/ykcao/avatargo-release/composite/gaussiansplatting/submodules/simple-knn/build/temp.linux-x86_64-cpython-38/spatial.o	9769ae041afc0c32
